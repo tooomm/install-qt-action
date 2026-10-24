@@ -44,9 +44,11 @@ Defaults:
 This is the target platform that you will be building for. You will want to set this if you are building for iOS or Android. Please note that iOS builds are supported only on macOS hosts and Win RT builds are only supported on Windows hosts.
 
 Possible values: `desktop`, `android`, `ios`, or `wasm`.  
-`wasm` is used with `all_os`, and incompatible with `aqtinstall < 3.2.0`.  
 
-Default: `desktop`  
+Default:
+- Host: `all_os`
+  - aqtinstall `>=3.2.0`: `wasm`
+- Other: `desktop`  
 
 
 ### `arch`
@@ -54,9 +56,7 @@ This is the target architecture or build variant that your program will be built
 
 **Linux x86 packages are not supported by this action.** Qt does not offer pre-built Linux x86 packages. Please consider using your distro's repository or building from source manually.
 
-**Possible values:**
-
-You can find a full list of architectures easily by using [this awesome website](https://ddalcino.github.io/aqt-list-server/).
+Possible values: You can find a full list of architectures easily by using [this awesome website](https://ddalcino.github.io/aqt-list-server/).
 
 Default: A popular and reasonable choice calculated from the host (`host`), Qt version (`version`), and target (`target`):
 - Linux x64 Host & Desktop Target
